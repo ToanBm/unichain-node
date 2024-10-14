@@ -20,20 +20,11 @@ Site : [Unichain](https://www.unichain.org/) | X : [UnicahinX](https://x.com/uni
 | **Disk**     | 100  GB  SSD            |
 
 ---
-
 ### Testnet
-
 Bridge Eth from sepolia to Unichain. Use both bridges
-
 Superbridge : https://superbridge.app/unichain-sepolia
-
 Bird Bridge : https://testnet.brid.gg/unichain-sepolia?amount=&originChainId=11155111&token=ETH
-
 Bridge back some amount
-
-### Contract Deployment 
-
-Watch the video 
 
 ### Update and Upgrade VPS
 ```
@@ -69,11 +60,8 @@ cd unichain-node
 ```
 nano .env.sepolia
 ``` 
-
-Get L1 RPC : [Drpc.org](https://drpc.org?ref=b5bbf3)
-
-Get Public beacon endpoints : https://ethereum-sepolia.publicnode.com/
-
+Get L1 RPC : [Drpc.org](https://drpc.org?ref=a0821e)
+![Picture](https://github.com/ToanBm/unichain-node/blob/main/RPC.jpg)
 ### Start Node: 
 ```
 docker compose up -d
