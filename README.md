@@ -22,8 +22,11 @@ Site : [Unichain](https://www.unichain.org/) | X : [UnicahinX](https://x.com/uni
 ---
 ### Testnet
 Bridge Eth from sepolia to Unichain. Use both bridges
-Superbridge : https://superbridge.app/unichain-sepolia
-Bird Bridge : https://testnet.brid.gg/unichain-sepolia?amount=&originChainId=11155111&token=ETH
+
+Super Bridge: [Link](https://superbridge.app/unichain-sepolia)
+
+Bird Bridge: [Link](https://testnet.brid.gg/unichain-sepolia?amount=&originChainId=11155111&token=ETH)
+
 Bridge back some amount
 
 ### Update and Upgrade VPS
