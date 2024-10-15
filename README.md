@@ -69,6 +69,10 @@ Get L1 RPC : [Drpc.org](https://drpc.org?ref=a0821e)
 ```
 docker compose up -d
 ```
+### Check logs: 
+```
+docker compose logs -f
+```
 ### curl Unichain Status:
 ```
 curl -d '{"id":1,"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest",false]}' -H "Content-Type: application/json" http://localhost:8545
