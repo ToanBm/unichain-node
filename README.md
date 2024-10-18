@@ -78,6 +78,7 @@ OP_NODE_L1_ETH_RPC=https://sepolia.infura.io/v3/<your-API-key>
 ```
 OP_NODE_L1_BEACON=https://ethereum-sepolia-beacon-api.publicnode.com
 ```
+![Image](https://github.com/ToanBm/unichain-node/blob/main/uni.jpg)
 ### Start Node: 
 ```
 docker compose up -d
