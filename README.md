@@ -31,10 +31,13 @@ Bridge back some amount
 
 ### Update and Upgrade VPS
 ```
-sudo apt update && sudo apt upgrade
-sudo apt-get install ca-certificates curl
+sudo apt update && sudo apt upgrade && sudo apt-get install ca-certificates curl
 ```
 ### Install Docker:
+- Check version, if you haven't installed it yet run the commands below
+```
+docker version
+```
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -43,44 +46,62 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 docker version
 ```
 ### Install Docker-Compose:
+- Check version, if you haven't installed it yet run the commands below
+```
+docker-compose --version
+```
 ```
 VER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep tag_name | cut -d '"' -f 4)
 curl -L "https://github.com/docker/compose/releases/download/"$VER"/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
-### Docker Permission to User
+### Docker Permission to User:
 ```
 sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
-### Clone UniChain Node :
+### Clone UniChain Node:
 ```
-git clone https://github.com/Uniswap/unichain-node
-cd unichain-node
+git clone https://github.com/Uniswap/unichain-node && cd unichain-node
 ```
 ### Edit env:
 ```
 nano .env.sepolia
-``` 
-Get L1 RPC : [Drpc.org](https://drpc.org?ref=a0821e)
-![Picture](https://github.com/ToanBm/unichain-node/blob/main/RPC.jpg)
+```
+- Get `OP_NODE_L1_ETH_RPC` [Infura](https://app.infura.io/)
+  Ex: https://sepolia.infura.io/v3/<your-API-key>
+- Edit file `.env.sepolia` as in the code below. (Ctrl + X, Y and Enter will do to save)
+```
+OP_NODE_L1_ETH_RPC=https://sepolia.infura.io/v3/<your-API-key>
+```
+```
+OP_NODE_L1_BEACON=https://ethereum-sepolia-beacon-api.publicnode.com
+```
 ### Start Node: 
 ```
 docker compose up -d
+```
+### You should now be able to `curl` your Unichain node:
+```
+curl -d '{"id":1,"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest",false]}' -H "Content-Type: application/json" http://localhost:8545
 ```
 ### Check logs: 
 ```
 docker compose logs -f
 ```
-### curl Unichain Status:
 ```
-curl -d '{"id":1,"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest",false]}' -H "Content-Type: application/json" http://localhost:8545
+docker logs unichain-node-op-node-1 -f
 ```
-
+### Take Private_key and add to Metamask wallet:
+```
+cat ~/unichain-node/geth-data/geth/nodekey
+```
+### Stop Node: 
+```
+docker compose down
+```
 -------------------------------------------------------------------------
-
-
 ## Contract Deployment
 
 ### Install foundry
